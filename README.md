@@ -6,11 +6,31 @@ This Python program implements the "Six Degrees of Kevin Bacon" game, finding th
 
 The program uses breadth-first search (BFS) to find the minimum number of connections between any two actors in a movie database. It loads data from CSV files containing information about people, movies, and movie casts.
 
+## Project Structure
+
+```
+.
+├── README.md
+├── large/                 # Large dataset directory
+│   ├── people.csv
+│   ├── movies.csv
+│   └── stars.csv
+├── small/                 # Small dataset directory (for testing)
+│   ├── people.csv
+│   ├── movies.csv
+│   └── stars.csv
+├── python/                # Source code directory
+│   ├── degrees.py         # Main program
+│   └── util.py            # BFS data structures
+└── pdf/
+    └── Programmier_Assignment_1.pdf  # Assignment description (in German)
+```
+
 ## Files
 
-- `degrees.py`: Main program that loads data and finds degrees of separation
-- `util.py`: Contains data structures for BFS (Node, StackFrontier, QueueFrontier)
-- `Programmier_Assignment_1.pdf`: Assignment description (in German)
+- `python/degrees.py`: Main program that loads data and finds degrees of separation
+- `python/util.py`: Contains data structures for BFS (Node, StackFrontier, QueueFrontier)
+- `pdf/Programmier_Assignment_1.pdf`: Assignment description (in German)
 
 ## Data Format
 
@@ -22,28 +42,41 @@ The program expects three CSV files in a data directory:
 
 ## Usage
 
-1. Place the CSV data files in a directory (e.g., `large/` or `small/`)
-2. Run the program:
+1. Run the program from the project root directory:
 
 ```bash
-python degrees.py [directory]
+python3 python/degrees.py [directory]
 ```
 
 If no directory is specified, it defaults to `large`.
 
-3. Enter the names of two actors when prompted
-4. The program will display the degrees of separation and the connection path
+2. Enter the names of two actors when prompted
+3. The program will display the degrees of separation and the connection path
 
-## Example
+## Example Output
 
 ```
 Loading data...
 Data loaded.
-Name: Kevin Bacon
-Name: Tom Hanks
-2 degrees of separation.
-1: Kevin Bacon and Kyra Sedgwick starred in Pyrates
-2: Kyra Sedgwick and Tom Hanks starred in Something's Gotta Give
+Name: Emma Watson
+Name: Jennifer Lawrence
+3 degrees of separation.
+1: Emma Watson and Brendan Gleeson starred in Harry Potter and the Order of the Phoenix
+2: Brendan Gleeson and Michael Fassbender starred in Trespass Against Us
+3: Michael Fassbender and Jennifer Lawrence starred in X-Men: First Class
+```
+
+## Testing
+
+The project includes both small and large datasets:
+
+- **Small dataset**: Contains 5 actors and 5 movies for quick testing
+- **Large dataset**: Contains 10 actors and 10 movies with more complex connections
+
+To test with the small dataset:
+
+```bash
+python3 python/degrees.py small
 ```
 
 ## Implementation

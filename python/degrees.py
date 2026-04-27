@@ -1,7 +1,7 @@
 import csv
 import sys
 
-from python.util import Node, StackFrontier, QueueFrontier
+from util import Node, StackFrontier, QueueFrontier
 
 # Maps names to a set of corresponding person_ids
 names = {}
@@ -91,9 +91,40 @@ def shortest_path(source, target):
 
     If no possible path, returns None.
     """
-
-    # TODO
-    raise NotImplementedError
+    # Initialize frontier with source node
+    start = Node(state=source, parent=None, action=None)
+    frontier = QueueFrontier()
+    frontier.add(start)
+    
+    # Keep track of explored states
+    explored = set()
+    
+    while not frontier.empty():
+        # Remove node from frontier
+        node = frontier.remove()
+        person_id = node.state
+        
+        # If we found the target, reconstruct the path
+        if person_id == target:
+            path = []
+            while node.parent is not None:
+                path.append(node.action)
+                node = node.parent
+            path.reverse()
+            return path
+        
+        # Mark as explored
+        explored.add(person_id)
+        
+        # Get neighbors
+        for movie_id, neighbor_id in neighbors_for_person(person_id):
+            if neighbor_id not in explored and not frontier.contains_state(neighbor_id):
+                # Create child node
+                child = Node(state=neighbor_id, parent=node, action=(movie_id, neighbor_id))
+                frontier.add(child)
+    
+    # No path found
+    return None
 
 
 def person_id_for_name(name):
