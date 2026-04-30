@@ -68,9 +68,9 @@ Data loaded.
 Name: Emma Watson
 Name: Jennifer Lawrence
 3 degrees of separation.
-1: Emma Watson and Brendan Gleeson starred in Harry Potter and the Order of the Phoenix
-2: Brendan Gleeson and Michael Fassbender starred in Trespass Against Us
-3: Michael Fassbender and Jennifer Lawrence starred in X-Men: First Class
+1: Emma Watson and Daniel Radcliffe starred in Harry Potter and the Prisoner of Azkaban
+2: Daniel Radcliffe and Woody Harrelson starred in Lost in London
+3: Woody Harrelson and Jennifer Lawrence starred in The Hunger Games: Mockingjay - Part 2
 ```
 
 ## Testing
