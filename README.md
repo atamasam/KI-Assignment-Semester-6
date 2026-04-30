@@ -77,8 +77,8 @@ Name: Jennifer Lawrence
 
 The project includes both small and large datasets:
 
-- **Small dataset**: Contains 5 actors and 5 movies for quick testing
-- **Large dataset**: Contains 10 actors and 10 movies with more complex connections
+- **Small dataset**: Contains 16 actors and 5 movies for quick testing
+- **Large dataset**: Contains 1,044,499 actors and 344,276 movies with much larger connections
 
 To test with the small dataset:
 
