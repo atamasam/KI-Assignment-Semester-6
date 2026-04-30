@@ -91,40 +91,45 @@ def shortest_path(source, target):
 
     If no possible path, returns None.
     """
-    # Initialize frontier with source node
+    if source == target:
+        return []
+
+    # Initialize frontier to just the starting position
     start = Node(state=source, parent=None, action=None)
     frontier = QueueFrontier()
     frontier.add(start)
-    
-    # Keep track of explored states
+
+    # Initialize an empty explored set
     explored = set()
-    
-    while not frontier.empty():
-        # Remove node from frontier
+
+    # Keep looping until solution found
+    while True:
+
+        # If nothing left in frontier, then no path
+        if frontier.empty():
+            return None
+
+        # Choose a node from the frontier
         node = frontier.remove()
-        person_id = node.state
-        
-        # If we found the target, reconstruct the path
-        if person_id == target:
-            path = []
-            while node.parent is not None:
-                path.append(node.action)
-                node = node.parent
-            path.reverse()
-            return path
-        
-        # Mark as explored
-        explored.add(person_id)
-        
-        # Get neighbors
-        for movie_id, neighbor_id in neighbors_for_person(person_id):
-            if neighbor_id not in explored and not frontier.contains_state(neighbor_id):
-                # Create child node
-                child = Node(state=neighbor_id, parent=node, action=(movie_id, neighbor_id))
+
+        # Mark node as explored
+        explored.add(node.state)
+
+        # Add neighbors to frontier
+        for action, state in neighbors_for_person(node.state):
+            if not frontier.contains_state(state) and state not in explored:
+                child = Node(state=state, parent=node, action=action)
+                
+                # Check for target to optimize (early exit)
+                if state == target:
+                    path = []
+                    while child.parent is not None:
+                        path.append((child.action, child.state))
+                        child = child.parent
+                    path.reverse()
+                    return path
+                
                 frontier.add(child)
-    
-    # No path found
-    return None
 
 
 def person_id_for_name(name):

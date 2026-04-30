@@ -2,6 +2,13 @@
 
 This Python program implements the "Six Degrees of Kevin Bacon" game, finding the shortest path between two actors through movies they've starred in together.
 
+## Group Submission Details
+
+- **Course:** KI mit Python (SS 2026)
+- **Deadline:** April 30, 2026, 12:00 PM
+- **Team Members:** Samuel Atama, Malik Yildizhan, Santiago Meijide, Julian Soady, Elyas Mouhkli
+- **Target Group:** WWIMBIT23A
+
 ## Overview
 
 The program uses breadth-first search (BFS) to find the minimum number of connections between any two actors in a movie database. It loads data from CSV files containing information about people, movies, and movie casts.
@@ -87,13 +94,6 @@ The `shortest_path` function in `degrees.py` implements BFS using a queue fronti
 
 - Python 3.x
 - CSV data files in the expected format
-
-## Group Submission Details
-
-- **Course:** KI mit Python (SS 2026)
-- **Deadline:** April 30, 2026, 12:00 PM
-- **Team Members:** Samuel Atama, Malik Yildizhan, Santiago Meijide, Julian Soady, Elyas Mouhkli
-- **Target Group:** WWIMBIT23A
 
 ## Notes
 
