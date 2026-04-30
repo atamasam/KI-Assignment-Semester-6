@@ -4,7 +4,7 @@ This Python program implements the "Six Degrees of Kevin Bacon" game, finding th
 
 ## Group Submission Details
 
-- **Course:** KI mit Python (SS 2026)
+- **Course:** KI mit Python (Sommersemester 2026)
 - **Deadline:** April 30, 2026, 12:00 PM
 - **Team Members:** Samuel Atama, Malik Yildizhan, Santiago Meijide, Julian Soady, Elyas Mouhkli
 - **Target Group:** WWIMBIT23A
